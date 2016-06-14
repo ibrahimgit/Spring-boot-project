@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.nobo.ir.rs.client.RestFulWebserviceClient;
 import com.nobo.ir.springpoc.model.NoboIbu;
+import com.nobo.ir.springpoc.rs.client.RestFulWebserviceClient;
 
 @RestController
 public class MyController {
@@ -19,7 +19,7 @@ public class MyController {
 	@Value("${application.message:Hello World}")
 	private String message = "Hello World";
 	
-	@RequestMapping(value={"/", "/nobo"}, method=RequestMethod.GET)
+	@RequestMapping(value={"/nobo"}, method=RequestMethod.GET)
 	public ModelAndView myForm(ModelMap map) {
 		System.out.println("Hi, I am your dear Nobo and you are my dear Ibu");
 		ModelAndView mav = new ModelAndView("index", "name", "Nobo");

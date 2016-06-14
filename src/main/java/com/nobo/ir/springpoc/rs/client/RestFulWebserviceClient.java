@@ -1,4 +1,4 @@
-package com.nobo.ir.rs.client;
+package com.nobo.ir.springpoc.rs.client;
 
 import org.springframework.web.client.RestTemplate;
 
@@ -9,7 +9,7 @@ public class RestFulWebserviceClient {
 	RestTemplate rt = new RestTemplate();
 	
 	public void getMessage() {
-		NoboIbu ni = rt.getForObject("http://localhost:8080/test/getAllMessages/1", NoboIbu.class);
+		NoboIbu ni = rt.getForObject("http://localhost:8080/test/getMessage/1", NoboIbu.class);
 		
 		System.out.println("Message: "+ ni.getMessage());
 	
