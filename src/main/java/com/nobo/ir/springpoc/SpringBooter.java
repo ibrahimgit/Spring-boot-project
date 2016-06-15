@@ -2,11 +2,6 @@ package com.nobo.ir.springpoc;
 
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-
-import com.nobo.ir.springpoc.model.Product;
-import com.nobo.ir.springpoc.repository.ProductRepository;
 
 
 
@@ -14,7 +9,7 @@ import com.nobo.ir.springpoc.repository.ProductRepository;
 //@EnableJpaRepositories(basePackageClasses={ProductRepository.class, Product.class}) // not required if @SpringBootApplication is there with default settings
 //@EnableTransactionManagement// not required if @SpringBootApplication is there
 //@EnableWebMvc // not required if @SpringBootApplication is there
-//@ComponentScan(basePackages="com.nobo.ir.springpoc")
+//@ComponentScan/*(basePackages="com.nobo.ir.springpoc")*/
 public class SpringBooter /*extends SpringBootServletInitializer*/ /*extends WebMvcConfigurerAdapter*/ {
 
 	

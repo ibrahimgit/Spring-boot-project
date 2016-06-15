@@ -38,7 +38,7 @@ public class ProductController {
 	
 	@RequestMapping(value="getPrice/{id}", method=RequestMethod.GET) //not working right now
 	public double getPrice(@PathVariable("id") Integer id) {
-		return productRepository.findByProductPrice(id);
+		return productRepository.getProductPrice(id);
 	}
 	
 	@RequestMapping(value="getProduct/{id}", method=RequestMethod.GET)
@@ -56,6 +56,11 @@ public class ProductController {
 		List<Product> productList = new ArrayList<Product>();
 		productRepository.findAll().forEach(item -> productList.add(item));
 		return productList;
+	}
+	
+	@RequestMapping(value="updateProductPrice/{id}", method=RequestMethod.PUT)
+	public void updateProductPrice(@PathVariable("id") Integer id, @RequestParam("newPrice") double newPrice) {
+		productRepository.updatePrice(id, newPrice);
 	}
 	
 	/*@ExceptionHandler(Exception.class)

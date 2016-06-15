@@ -7,8 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 
 @Entity
+@NamedQuery(name="Product.getProductPrice", query="SELECT product.productPrice FROM Product product WHERE product.id = :id")
 public class Product {
 	
 	@Id
