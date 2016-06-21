@@ -1,5 +1,6 @@
 package com.nobo.ir.springpoc;
 
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 
@@ -10,12 +11,20 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 //@EnableTransactionManagement// not required if @SpringBootApplication is there
 //@EnableWebMvc // not required if @SpringBootApplication is there
 //@ComponentScan/*(basePackages="com.nobo.ir.springpoc")*/
-public class SpringBooter /*extends SpringBootServletInitializer*/ /*extends WebMvcConfigurerAdapter*/ {
+public class SpringBooter implements CommandLineRunner/*extends SpringBootServletInitializer*/ /*extends WebMvcConfigurerAdapter*/ {
 
 	
 	public static void main(String[] args) {
 		//SpringApplication.run(SpringBooter.class, args);
 		new SpringApplicationBuilder(SpringBooter.class).run(args);
+		
+	}
+
+	// To immediately run the app just after the spring context is up
+	//It is called before SpringApplication.run()
+	@Override
+	public void run(String... args) throws Exception {
+		System.out.println("I am inside the CommandLineRunner");
 		
 	}
 	
