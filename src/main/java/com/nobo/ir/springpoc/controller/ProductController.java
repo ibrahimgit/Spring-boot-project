@@ -62,6 +62,11 @@ public class ProductController {
 	public void updateProductPrice(@PathVariable("id") Integer id, @RequestParam("newPrice") double newPrice) {
 		productRepository.updatePrice(id, newPrice);
 	}
+
+	public void setProductRepository(ProductRepository productRepository) {
+		this.productRepository = productRepository;
+		
+	}
 	
 	/*@ExceptionHandler(Exception.class)
 	public ApplicationException handleException(Exception ex){
