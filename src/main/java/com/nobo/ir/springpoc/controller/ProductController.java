@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +19,15 @@ import com.nobo.ir.springpoc.repository.ProductRepository;
 @RestController
 @RequestMapping("product")
 public class ProductController {
+	
+	@Value("${springpoc.message}")
+	String message;
+	
+	@Value("${springpoc.test}")
+	String testMessage;
+	
+	@Autowired
+	Environment environment;
 	
 	@Autowired
 	private ProductRepository productRepository;
@@ -53,6 +64,9 @@ public class ProductController {
 	
 	@RequestMapping(value="findAll", method=RequestMethod.GET)
 	public List<Product> getAllProduct() {
+		System.out.println("Message from @Value: " + message);
+		System.out.println("Test Message from @Value: " + testMessage);
+		System.out.println(" MEssage from Environment: " + environment.getProperty("application.message"));
 		List<Product> productList = new ArrayList<Product>();
 		productRepository.findAll().forEach(item -> productList.add(item));
 		return productList;

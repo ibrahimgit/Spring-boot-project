@@ -3,14 +3,16 @@ package com.nobo.ir.springpoc;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.context.annotation.PropertySource;
 
 
 
-@SpringBootApplication
+@SpringBootApplication//(exclude=DataSourceAutoConfiguration.class) // if you want to disable auto-configure
 //@EnableJpaRepositories(basePackageClasses={ProductRepository.class, Product.class}) // not required if @SpringBootApplication is there with default settings
 //@EnableTransactionManagement// not required if @SpringBootApplication is there
 //@EnableWebMvc // not required if @SpringBootApplication is there
 //@ComponentScan/*(basePackages="com.nobo.ir.springpoc")*/
+@PropertySource("Test.properties") //for loading different properties other than default application.properties
 public class SpringBooter implements CommandLineRunner/*extends SpringBootServletInitializer*/ /*extends WebMvcConfigurerAdapter*/ {
 
 	
