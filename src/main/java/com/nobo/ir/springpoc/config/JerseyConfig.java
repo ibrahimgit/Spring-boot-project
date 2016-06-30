@@ -1,4 +1,4 @@
-package com.nobo.ir.springpoc.boot;
+package com.nobo.ir.springpoc.config;
 
 
 

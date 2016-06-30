@@ -34,6 +34,7 @@ public class ProductController {
 	
 	@RequestMapping(value="addProduct", method=RequestMethod.PUT)
 	public void addProduct(@RequestBody Product product) {
+		System.out.println("Date: " + product.getProdctMfgDate());
 		productRepository.save(product);
 	}
 	

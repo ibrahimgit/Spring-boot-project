@@ -1,6 +1,8 @@
 package com.nobo.ir.springpoc.model;
 
 
+
+
 import java.util.Date;
 
 import javax.persistence.Entity;
