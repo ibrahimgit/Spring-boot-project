@@ -1,0 +1,6 @@
+---
+yml:
+ test:
+  message: Ibrahim is a good boy
+  value: This is a value
+...

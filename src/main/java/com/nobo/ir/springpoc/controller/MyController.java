@@ -1,8 +1,10 @@
 package com.nobo.ir.springpoc.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,10 +16,32 @@ import com.nobo.ir.springpoc.model.NoboIbu;
 import com.nobo.ir.springpoc.rs.client.RestFulWebserviceClient;
 
 @RestController
+@ConfigurationProperties("ibrahim.test")
 public class MyController {
 	
 	@Value("${application.message:Hello World}")
 	private String message = "Hello World";
+	
+	private String name;
+	private int age;
+	private List<String>  values;
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+	public void setValues(List<String> values) {
+		this.values = values;
+	}
+
+	@RequestMapping(value = "getDataFromProp", method=RequestMethod.GET)
+	public NoboIbu getDataFromProp() {
+		return new NoboIbu(name, age, values);
+	}
 	
 	@RequestMapping(value={"/nobo"}, method=RequestMethod.GET)
 	public ModelAndView myForm(ModelMap map) {

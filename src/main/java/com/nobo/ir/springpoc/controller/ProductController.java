@@ -26,6 +26,9 @@ public class ProductController {
 	@Value("${springpoc.test}")
 	String testMessage;
 	
+	@Value("${yml.test.value}")
+	String messageYAML;
+	
 	@Autowired
 	Environment environment;
 	
@@ -68,6 +71,8 @@ public class ProductController {
 		System.out.println("Message from @Value: " + message);
 		System.out.println("Test Message from @Value: " + testMessage);
 		System.out.println(" MEssage from Environment: " + environment.getProperty("application.message"));
+		System.out.println("YAML MEssage from Environment: " + environment.getProperty("yml.test.message"));
+		System.out.println("YAML MEssage from @Value: " + messageYAML);
 		List<Product> productList = new ArrayList<Product>();
 		productRepository.findAll().forEach(item -> productList.add(item));
 		return productList;
