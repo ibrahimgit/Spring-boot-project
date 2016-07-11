@@ -3,6 +3,7 @@ package com.nobo.ir.springpoc.controller;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.ui.ModelMap;
@@ -18,6 +19,8 @@ import com.nobo.ir.springpoc.rs.client.RestFulWebserviceClient;
 @RestController
 @ConfigurationProperties("ibrahim.test")
 public class MyController {
+	
+	private static final Logger logger = Logger.getLogger(MyController.class); 
 	
 	@Value("${application.message:Hello World}")
 	private String message = "Hello World";
@@ -45,9 +48,10 @@ public class MyController {
 	
 	@RequestMapping(value={"/nobo"}, method=RequestMethod.GET)
 	public ModelAndView myForm(ModelMap map) {
-		System.out.println("Hi, I am your dear Nobo and you are my dear Ibu");
+		logger.debug("Hi, I am your dear Nobo and you are my dear Ibu");
 		ModelAndView mav = new ModelAndView("index", "name", "Nobo");
 		RestFulWebserviceClient client = new RestFulWebserviceClient();
+		client.putMessage();
 		client.getMessage();
 		client.putMessage();
 		client.updateMessage();
@@ -66,7 +70,7 @@ public class MyController {
 	
 	@RequestMapping(value="/details", method=RequestMethod.GET)
 	public ModelAndView myDetails(@RequestParam(value="name") String name, @RequestParam(value="age") String age){
-		System.out.println("Hi, I am Ibrahim");
+		logger.debug("Hi, I am Ibrahim");
 //		Employee emp = new Employee(name, age);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("name", name);

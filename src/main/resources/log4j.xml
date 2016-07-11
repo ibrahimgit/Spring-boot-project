@@ -10,33 +10,31 @@
 		</layout>
 	</appender>
 	
-	<logger name="org.springframework.samples">
+	<appender name="FILE" class="org.apache.log4j.RollingFileAppender">
+		<param name="file" value="${log.fileName}" />
+		<param name="MaxFileSize" value="10MB" />
+		<param name="MaxBackupIndex" value="10" />
+		<param name="immediateFlush" value="true" />
+		<param name="threshold" value="debug" />
+		<param name="append" value="false" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%X %d [%t] %-5p %c - %m%n" />
+		</layout>
+	</appender>
+	
+	<logger name="org.springframework">
 		<level value="debug" />
 	</logger>
 	
-	<logger name="org.springframework.core">
-		<level value="info" />
-	</logger>
-	
-	<logger name="org.springframework.beans">
-		<level value="info" />
-	</logger>
-	
-	<logger name="org.springframework.context">
-		<level value="info" />
-	</logger>
-
-	<logger name="org.springframework.http">
+	<!-- <logger name="com.nobo.ir">
 		<level value="debug" />
-	</logger>
-
-	<logger name="org.springframework.web">
-		<level value="debug" />
-	</logger>
+	</logger> -->
+	
 
 	<root>
-		<priority value="warn" />
+		<priority value="debug" />
 		<appender-ref ref="console" />
+		<appender-ref ref="FILE" />
 	</root>
 	
 </log4j:configuration>

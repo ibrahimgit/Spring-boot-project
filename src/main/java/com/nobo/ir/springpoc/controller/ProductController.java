@@ -3,6 +3,7 @@ package com.nobo.ir.springpoc.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
@@ -19,6 +20,8 @@ import com.nobo.ir.springpoc.repository.ProductRepository;
 @RestController
 @RequestMapping("product")
 public class ProductController {
+	
+	private static final Logger logger = Logger.getLogger(ProductController.class);
 	
 	@Value("${springpoc.message}")
 	String message;
@@ -37,7 +40,7 @@ public class ProductController {
 	
 	@RequestMapping(value="addProduct", method=RequestMethod.PUT)
 	public void addProduct(@RequestBody Product product) {
-		System.out.println("Date: " + product.getProdctMfgDate());
+		logger.debug("Date: " + product.getProdctMfgDate());
 		productRepository.save(product);
 	}
 	
@@ -68,11 +71,11 @@ public class ProductController {
 	
 	@RequestMapping(value="findAll", method=RequestMethod.GET)
 	public List<Product> getAllProduct() {
-		System.out.println("Message from @Value: " + message);
-		System.out.println("Test Message from @Value: " + testMessage);
-		System.out.println(" MEssage from Environment: " + environment.getProperty("application.message"));
-		System.out.println("YAML MEssage from Environment: " + environment.getProperty("yml.test.message"));
-		System.out.println("YAML MEssage from @Value: " + messageYAML);
+		logger.debug("Message from @Value: " + message);
+		logger.debug("Test Message from @Value: " + testMessage);
+		logger.debug(" MEssage from Environment: " + environment.getProperty("application.message"));
+		logger.debug("YAML MEssage from Environment: " + environment.getProperty("yml.test.message"));
+		logger.debug("YAML MEssage from @Value: " + messageYAML);
 		List<Product> productList = new ArrayList<Product>();
 		productRepository.findAll().forEach(item -> productList.add(item));
 		return productList;
