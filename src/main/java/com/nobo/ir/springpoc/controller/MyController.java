@@ -3,7 +3,8 @@ package com.nobo.ir.springpoc.controller;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.ui.ModelMap;
@@ -20,7 +21,7 @@ import com.nobo.ir.springpoc.rs.client.RestFulWebserviceClient;
 @ConfigurationProperties("ibrahim.test")
 public class MyController {
 	
-	private static final Logger logger = Logger.getLogger(MyController.class); 
+	private static final Logger logger = LoggerFactory.getLogger(MyController.class); 
 	
 	@Value("${application.message:Hello World}")
 	private String message = "Hello World";

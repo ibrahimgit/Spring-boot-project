@@ -3,7 +3,8 @@ package com.nobo.ir.springpoc.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
@@ -21,7 +22,8 @@ import com.nobo.ir.springpoc.repository.ProductRepository;
 @RequestMapping("product")
 public class ProductController {
 	
-	private static final Logger logger = Logger.getLogger(ProductController.class);
+	// logging framework is SLF4J. The dependent Jars are slf4j-api, slf4j-logrj12, log4j
+	private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
 	
 	@Value("${springpoc.message}")
 	String message;

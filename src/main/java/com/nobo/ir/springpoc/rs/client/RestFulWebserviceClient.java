@@ -1,13 +1,14 @@
 package com.nobo.ir.springpoc.rs.client;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.client.RestTemplate;
 
 import com.nobo.ir.springpoc.model.NoboIbu;
 
 public class RestFulWebserviceClient {
 	
-	private static final Logger logger = Logger.getLogger(RestFulWebserviceClient.class);
+	private static final Logger logger = LoggerFactory.getLogger(RestFulWebserviceClient.class);
 	
 	RestTemplate rt = new RestTemplate();
 	
