@@ -5,7 +5,7 @@
 	<artifactId>ir-spring-boot</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>MySprngProject Maven Webapp</name>
+	<name>Spring boot POC project for learnig</name>
 	<url>http://maven.apache.org</url>
 
 
@@ -173,7 +173,7 @@
     </repositories>
 	
 	<build>
-		<finalName>MySprngProject</finalName>
+		<finalName>ir-spring-boot</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
