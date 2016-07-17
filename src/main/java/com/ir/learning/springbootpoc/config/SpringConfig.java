@@ -1,4 +1,4 @@
-package com.nobo.ir.springpoc.config;
+package com.ir.learning.springbootpoc.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -6,9 +6,9 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-import com.nobo.ir.springpoc.model.Employee;
-import com.nobo.ir.springpoc.model.NoboIbu;
-import com.nobo.ir.springpoc.model.Product;
+import com.ir.learning.springbootpoc.model.Employee;
+import com.ir.learning.springbootpoc.model.NoboIbu;
+import com.ir.learning.springbootpoc.model.Product;
 
 @Configuration
 public class SpringConfig extends WebMvcConfigurerAdapter {

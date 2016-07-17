@@ -1,4 +1,4 @@
-package com.nobo.ir.springpoc.exception;
+package com.ir.learning.springbootpoc.exception;
 
 public class ApplicationException extends Exception {
 

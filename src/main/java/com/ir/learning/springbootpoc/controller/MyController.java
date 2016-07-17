@@ -1,4 +1,4 @@
-package com.nobo.ir.springpoc.controller;
+package com.ir.learning.springbootpoc.controller;
 
 import java.util.List;
 import java.util.Map;
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.nobo.ir.springpoc.model.NoboIbu;
-import com.nobo.ir.springpoc.rs.client.RestFulWebserviceClient;
+import com.ir.learning.springbootpoc.model.NoboIbu;
+import com.ir.learning.springbootpoc.rs.client.RestFulWebserviceClient;
 
 @RestController
 @ConfigurationProperties("ibrahim.test")

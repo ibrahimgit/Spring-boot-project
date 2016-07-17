@@ -12,9 +12,9 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnit44Runner;
 
-import com.nobo.ir.springpoc.controller.ProductController;
-import com.nobo.ir.springpoc.model.Product;
-import com.nobo.ir.springpoc.repository.ProductRepository;
+import com.ir.learning.springbootpoc.controller.ProductController;
+import com.ir.learning.springbootpoc.model.Product;
+import com.ir.learning.springbootpoc.repository.ProductRepository;
 
 
 

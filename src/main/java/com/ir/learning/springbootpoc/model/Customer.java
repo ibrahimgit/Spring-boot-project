@@ -1,4 +1,4 @@
-package com.nobo.ir.springpoc.model;
+package com.ir.learning.springbootpoc.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

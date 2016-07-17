@@ -1,4 +1,4 @@
-package com.nobo.ir.springpoc;
+package com.ir.learning.springbootpoc;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,7 +12,7 @@ import org.springframework.context.annotation.PropertySource;
 //@EnableJpaRepositories(basePackageClasses={ProductRepository.class, Product.class}) // not required if @SpringBootApplication is there with default settings
 //@EnableTransactionManagement// not required if @SpringBootApplication is there
 //@EnableWebMvc // not required if @SpringBootApplication is there
-//@ComponentScan/*(basePackages="com.nobo.ir.springpoc")*/
+//@ComponentScan/*(basePackages="com.ir.learning.springbootpoc")*/
 @PropertySource("Test.properties") //for loading different properties other than default application.properties
 public class SpringBooter implements CommandLineRunner/*extends SpringBootServletInitializer*/ /*extends WebMvcConfigurerAdapter*/ {
 

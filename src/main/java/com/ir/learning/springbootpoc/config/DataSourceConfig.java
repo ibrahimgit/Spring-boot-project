@@ -1,4 +1,4 @@
-package com.nobo.ir.springpoc.config;
+package com.ir.learning.springbootpoc.config;
 
 
 public class DataSourceConfig /*extends TomcatD*/ {

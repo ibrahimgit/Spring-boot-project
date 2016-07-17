@@ -1,4 +1,4 @@
-package com.nobo.ir.springpoc.repository;
+package com.ir.learning.springbootpoc.repository;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
-import com.nobo.ir.springpoc.model.Customer;
+import com.ir.learning.springbootpoc.model.Customer;
 
 public interface CustomerRepository extends CrudRepository<Customer, Long>{
 

@@ -2,7 +2,7 @@ package com.nobo.ir.springpoc;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.nobo.ir.springpoc.model.Customer;
+import com.ir.learning.springbootpoc.model.Customer;
 
 public class POC {
 	

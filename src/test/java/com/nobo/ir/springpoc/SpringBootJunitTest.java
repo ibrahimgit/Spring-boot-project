@@ -10,8 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.nobo.ir.springpoc.controller.ProductController;
-import com.nobo.ir.springpoc.model.Product;
+import com.ir.learning.springbootpoc.SpringBooter;
+import com.ir.learning.springbootpoc.controller.ProductController;
+import com.ir.learning.springbootpoc.model.Product;
 
 
 @RunWith(SpringJUnit4ClassRunner.class)

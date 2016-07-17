@@ -1,10 +1,10 @@
-package com.nobo.ir.springpoc.rs.client;
+package com.ir.learning.springbootpoc.rs.client;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.client.RestTemplate;
 
-import com.nobo.ir.springpoc.model.NoboIbu;
+import com.ir.learning.springbootpoc.model.NoboIbu;
 
 public class RestFulWebserviceClient {
 	

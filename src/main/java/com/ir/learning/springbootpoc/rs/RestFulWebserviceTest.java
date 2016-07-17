@@ -1,4 +1,4 @@
-package com.nobo.ir.springpoc.rs;
+package com.ir.learning.springbootpoc.rs;
 
 
 
