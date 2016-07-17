@@ -15,7 +15,7 @@
 		<param name="MaxFileSize" value="10MB" />
 		<param name="MaxBackupIndex" value="10" />
 		<param name="immediateFlush" value="true" />
-		<param name="threshold" value="debug" />
+		<param name="threshold" value="info" />
 		<param name="append" value="false" />
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern" value="%X %d [%t] %-5p %c - %m%n" />
@@ -36,7 +36,7 @@
 	
 
 	<root>
-		<priority value="warn" />
+		<priority value="error" />
 		<appender-ref ref="console" />
 		<appender-ref ref="FILE" />
 	</root>

@@ -73,11 +73,11 @@ public class ProductController {
 	
 	@RequestMapping(value="findAll", method=RequestMethod.GET)
 	public List<Product> getAllProduct() {
-		logger.debug("Message from @Value: " + message);
+		logger.info("INFO - Message from @Value: " + message);
 		logger.debug("Test Message from @Value: " + testMessage);
-		logger.debug(" MEssage from Environment: " + environment.getProperty("application.message"));
+		logger.warn("WAARN MEssage from Environment: " + environment.getProperty("application.message"));
 		logger.debug("YAML MEssage from Environment: " + environment.getProperty("yml.test.message"));
-		logger.debug("YAML MEssage from @Value: " + messageYAML);
+		logger.warn("WARN YAML MEssage from @Value: " + messageYAML);
 		List<Product> productList = new ArrayList<Product>();
 		productRepository.findAll().forEach(item -> productList.add(item));
 		return productList;
