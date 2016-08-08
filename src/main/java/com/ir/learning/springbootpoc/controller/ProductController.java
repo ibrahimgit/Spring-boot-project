@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ir.learning.springbootpoc.model.Product;
 import com.ir.learning.springbootpoc.repository.ProductRepository;
+import com.ir.learning.springbootpoc.rs.client.RestFulWebserviceClient;
 
 @RestController
 @RequestMapping("product")
@@ -24,18 +25,6 @@ public class ProductController {
 	
 	// logging framework is SLF4J. The dependent Jars are slf4j-api, slf4j-logrj12, log4j
 	private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
-	
-	@Value("${springpoc.message}")
-	String message;
-	
-	@Value("${springpoc.test}")
-	String testMessage;
-	
-	@Value("${yml.test.value}")
-	String messageYAML;
-	
-	@Autowired
-	Environment environment;
 	
 	@Autowired
 	private ProductRepository productRepository;
@@ -72,12 +61,9 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value="findAll", method=RequestMethod.GET)
-	public List<Product> getAllProduct() {
-		logger.info("INFO - Message from @Value: " + message);
-		logger.debug("Test Message from @Value: " + testMessage);
-		logger.warn("WAARN MEssage from Environment: " + environment.getProperty("application.message"));
-		logger.debug("YAML MEssage from Environment: " + environment.getProperty("yml.test.message"));
-		logger.warn("WARN YAML MEssage from @Value: " + messageYAML);
+	public List<Product> getAllProduct()/* throws SQLException */{
+		//System.out.println("Datasource: " + datasource.getConnection());
+		
 		List<Product> productList = new ArrayList<Product>();
 		productRepository.findAll().forEach(item -> productList.add(item));
 		return productList;

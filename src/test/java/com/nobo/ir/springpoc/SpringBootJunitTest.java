@@ -37,13 +37,13 @@ public class SpringBootJunitTest {
 		product.setProductPrice(40.0);
 		productController.addProduct(product);
 		
-		List<Product> allProduct = productController.getAllProduct();
-		System.out.println("List size: " + allProduct.size());
+		//List<Product> allProduct = productController.getAllProduct();
+		/*System.out.println("List size: " + allProduct.size());
 		assertEquals(allProduct.size(),3);
 		assertEquals(allProduct.get(0).getProductType(),"A");
 		
 		allProduct = productController.getProduct("B");
-		assertEquals(allProduct.size(),1);
+		assertEquals(allProduct.size(),1);*/
 		
 		double price = productController.getPrice(3);
 		assertEquals(price, 40.0, 0.0);

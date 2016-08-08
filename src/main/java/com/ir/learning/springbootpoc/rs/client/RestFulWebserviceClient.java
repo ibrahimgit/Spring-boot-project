@@ -2,10 +2,18 @@ package com.ir.learning.springbootpoc.rs.client;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.http.RequestEntity;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import com.ir.learning.springbootpoc.model.NoboIbu;
 
+@Service
 public class RestFulWebserviceClient {
 	
 	private static final Logger logger = LoggerFactory.getLogger(RestFulWebserviceClient.class);
@@ -31,6 +39,19 @@ public class RestFulWebserviceClient {
 		
 		logger.debug("Message updated successfully");
 	
+	}
+	
+	public String getRestData(String uriPath) {
+		HttpHeaders hh = new HttpHeaders();
+		hh.setContentType(MediaType.APPLICATION_JSON);
+		HttpEntity<String> httpEntity = new HttpEntity<String>(hh);
+		ResponseEntity<String> re = rt.exchange(uriPath, HttpMethod.GET, httpEntity, String.class);
+		logger.debug(re.getBody());
+		
+		String resonse = rt.getForObject(uriPath, String.class);
+		logger.debug("*********");
+		logger.debug(resonse);
+		return re.getBody();
 	}
 
 }
