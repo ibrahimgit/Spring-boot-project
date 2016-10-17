@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.http.client.support.HttpRequestWrapper;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -41,6 +42,10 @@ public class MyController {
 	public void setValues(List<String> values) {
 		this.values = values;
 	}
+	
+	@RequestMapping(value="")
+	public String testRedirect(HttpRequestWrapper)
+	
 
 	@RequestMapping(value = "getDataFromProp", method=RequestMethod.GET)
 	public NoboIbu getDataFromProp() {

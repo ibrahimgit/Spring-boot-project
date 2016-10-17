@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ir.learning.springbootpoc.model.Product;
 import com.ir.learning.springbootpoc.repository.ProductRepository;
+import com.ir.learning.springbootpoc.rs.client.RestFulWebserviceClient;
 
 @RestController
 @RequestMapping("product")
@@ -39,6 +41,9 @@ public class ProductController {
 	
 	@Autowired
 	private ProductRepository productRepository;
+	
+	@Autowired
+	private RestFulWebserviceClient restFulWebserviceClient;
 	
 	@RequestMapping(value="addProduct", method=RequestMethod.PUT)
 	public void addProduct(@RequestBody Product product) {
@@ -71,6 +76,7 @@ public class ProductController {
 		return productRepository.count();
 	}
 	
+	@CrossOrigin
 	@RequestMapping(value="findAll", method=RequestMethod.GET)
 	public List<Product> getAllProduct() {
 		logger.info("INFO - Message from @Value: " + message);
@@ -80,6 +86,14 @@ public class ProductController {
 		logger.warn("WARN YAML MEssage from @Value: " + messageYAML);
 		List<Product> productList = new ArrayList<Product>();
 		productRepository.findAll().forEach(item -> productList.add(item));
+		
+		//restFulWebserviceClient.getWeatherOpenWeatherMap();
+		
+		logger.info("info.build.artifact: " + environment.getProperty("info.build.artifact"));
+		logger.debug("info.build.name: " + environment.getProperty("info.build.name"));
+		logger.warn("info.build.description: " + environment.getProperty("info.build.description"));
+		logger.debug("info.build.version: " + environment.getProperty("info.build.version"));
+		
 		return productList;
 	}
 	

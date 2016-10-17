@@ -2,10 +2,18 @@ package com.ir.learning.springbootpoc.rs.client;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.hazelcast.com.eclipsesource.json.JsonObject;
 import com.ir.learning.springbootpoc.model.NoboIbu;
 
+@Service
 public class RestFulWebserviceClient {
 	
 	private static final Logger logger = LoggerFactory.getLogger(RestFulWebserviceClient.class);
@@ -31,6 +39,21 @@ public class RestFulWebserviceClient {
 		
 		logger.debug("Message updated successfully");
 	
+	}
+	
+	public void getWeatherOpenWeatherMap() {
+		String response = rt.getForObject("http://api.openweathermap.org/data/2.5/forecast/city?id=524901&APPID=907f14649dd7564b21d2d4a61d954414", String.class);
+		logger.debug(response);
+		logger.debug("*********************");
+		HttpHeaders httpHeaders = new HttpHeaders();
+		httpHeaders.setContentType(MediaType.APPLICATION_JSON);
+		/*httpHeaders.set("Access-Control-Allow-Origin", "*");
+		httpHeaders.set("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT");*/
+		HttpEntity<String> httpEntity = new HttpEntity<>(httpHeaders);
+		
+		ResponseEntity<String> re = rt.exchange("http://api.openweathermap.org/data/2.5/forecast/city?id=524901&APPID=907f14649dd7564b21d2d4a61d954414", HttpMethod.GET, httpEntity, String.class);
+		logger.debug(re.getBody());
+		//JsonObject jsonObject = new JS
 	}
 
 }
