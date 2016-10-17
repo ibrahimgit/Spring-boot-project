@@ -27,18 +27,6 @@ public class ProductController {
 	// logging framework is SLF4J. The dependent Jars are slf4j-api, slf4j-logrj12, log4j
 	private static final Logger logger = LoggerFactory.getLogger(ProductController.class);
 	
-	@Value("${springpoc.message}")
-	String message;
-	
-	@Value("${springpoc.test}")
-	String testMessage;
-	
-	@Value("${yml.test.value}")
-	String messageYAML;
-	
-	@Autowired
-	Environment environment;
-	
 	@Autowired
 	private ProductRepository productRepository;
 	
@@ -78,22 +66,13 @@ public class ProductController {
 	
 	@CrossOrigin
 	@RequestMapping(value="findAll", method=RequestMethod.GET)
-	public List<Product> getAllProduct() {
-		logger.info("INFO - Message from @Value: " + message);
-		logger.debug("Test Message from @Value: " + testMessage);
-		logger.warn("WAARN MEssage from Environment: " + environment.getProperty("application.message"));
-		logger.debug("YAML MEssage from Environment: " + environment.getProperty("yml.test.message"));
-		logger.warn("WARN YAML MEssage from @Value: " + messageYAML);
+	public List<Product> getAllProduct()/* throws SQLException */{
+		//System.out.println("Datasource: " + datasource.getConnection());
+		
 		List<Product> productList = new ArrayList<Product>();
 		productRepository.findAll().forEach(item -> productList.add(item));
 		
 		//restFulWebserviceClient.getWeatherOpenWeatherMap();
-		
-		logger.info("info.build.artifact: " + environment.getProperty("info.build.artifact"));
-		logger.debug("info.build.name: " + environment.getProperty("info.build.name"));
-		logger.warn("info.build.description: " + environment.getProperty("info.build.description"));
-		logger.debug("info.build.version: " + environment.getProperty("info.build.version"));
-		
 		return productList;
 	}
 	

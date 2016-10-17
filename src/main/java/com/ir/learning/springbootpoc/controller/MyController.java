@@ -43,8 +43,8 @@ public class MyController {
 		this.values = values;
 	}
 	
-	@RequestMapping(value="")
-	public String testRedirect(HttpRequestWrapper)
+	//@RequestMapping(value="")
+	//public String testRedirect(HttpRequestWrapper)
 	
 
 	@RequestMapping(value = "getDataFromProp", method=RequestMethod.GET)

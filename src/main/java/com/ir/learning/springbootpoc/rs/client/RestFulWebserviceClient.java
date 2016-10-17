@@ -10,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-import com.hazelcast.com.eclipsesource.json.JsonObject;
 import com.ir.learning.springbootpoc.model.NoboIbu;
 
 @Service
@@ -54,6 +53,19 @@ public class RestFulWebserviceClient {
 		ResponseEntity<String> re = rt.exchange("http://api.openweathermap.org/data/2.5/forecast/city?id=524901&APPID=907f14649dd7564b21d2d4a61d954414", HttpMethod.GET, httpEntity, String.class);
 		logger.debug(re.getBody());
 		//JsonObject jsonObject = new JS
+	}
+	
+	public String getRestData(String uriPath) {
+		HttpHeaders hh = new HttpHeaders();
+		hh.setContentType(MediaType.APPLICATION_JSON);
+		HttpEntity<String> httpEntity = new HttpEntity<String>(hh);
+		ResponseEntity<String> re = rt.exchange(uriPath, HttpMethod.GET, httpEntity, String.class);
+		logger.debug(re.getBody());
+		
+		String resonse = rt.getForObject(uriPath, String.class);
+		logger.debug("*********");
+		logger.debug(resonse);
+		return re.getBody();
 	}
 
 }
